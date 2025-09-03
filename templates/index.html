@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text to Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Video Generator</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label>Enter text:</label>
+            <input type="text" name="text" required>
+
+            <label>Upload image:</label>
+            <input type="file" name="image" accept="image/*" required>
+
+            <button type="submit">Generate Video</button>
+        </form>
+    </div>
+</body>
+</html>
