@@ -4,30 +4,66 @@
   <meta charset="UTF-8">
   <title>Text to Voice/Video Generator</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    /* Loading overlay */
+    #loading {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 9999;
+      color: white;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      padding-top: 20%;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #ff7e5f;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin: 20px auto;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Text ➝ Voice / Video Generator 🎤🎬</h1>
+    <h1>Generate Video/Audio</h1>
+    <form id="generateForm" action="/generate" method="POST" enctype="multipart/form-data">
+      <label for="text">Enter Text:</label>
+      <input type="text" id="text" name="text" placeholder="Type something...">
 
-    <form action="/generate" method="POST" enctype="multipart/form-data">
-      <!-- Text Input -->
-      <label for="text">Enter Text (required):</label><br>
-      <textarea name="text" id="text" rows="4" cols="50" placeholder="Type something..."></textarea>
-      <br><br>
+      <label for="image">Upload Image:</label>
+      <input type="file" name="image" id="image">
 
-      <!-- Image Upload -->
-      <label for="image">Upload Image (optional):</label><br>
-      <input type="file" name="image" id="image" accept="image/*">
-      <br><br>
+      <label for="audio">Upload Audio:</label>
+      <input type="file" name="audio" id="audio">
 
-      <!-- Audio Upload -->
-      <label for="audio">Upload Audio (optional):</label><br>
-      <input type="file" name="audio" id="audio" accept="audio/*">
-      <br><br>
-
-      <!-- Submit Button -->
-      <button type="submit" class="btn">Generate</button>
+      <br>
+      <button type="submit">Generate</button>
     </form>
   </div>
+
+  <!-- Loading screen -->
+  <div id="loading">
+    <div class="spinner"></div>
+    Generating... Please wait 😊
+  </div>
+
+  <script>
+    document.getElementById("generateForm").addEventListener("submit", function() {
+      document.getElementById("loading").style.display = "block";
+    });
+  </script>
 </body>
 </html>
