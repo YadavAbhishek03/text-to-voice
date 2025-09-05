@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Text to Video</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Text to Voice/Video Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Text to Video Generator</h1>
-        <form action="/" method="POST" enctype="multipart/form-data">
-            <label>Enter text:</label>
-            <input type="text" name="text" required>
+  <div class="container">
+    <h1>Text ➝ Voice / Video Generator 🎤🎬</h1>
 
-            <label>Upload image:</label>
-            <input type="file" name="image" accept="image/*" required>
+    <form action="/generate" method="POST" enctype="multipart/form-data">
+      <!-- Text Input -->
+      <label for="text">Enter Text (required):</label><br>
+      <textarea name="text" id="text" rows="4" cols="50" placeholder="Type something..."></textarea>
+      <br><br>
 
-            <button type="submit">Generate Video</button>
-        </form>
-    </div>
+      <!-- Image Upload -->
+      <label for="image">Upload Image (optional):</label><br>
+      <input type="file" name="image" id="image" accept="image/*">
+      <br><br>
+
+      <!-- Audio Upload -->
+      <label for="audio">Upload Audio (optional):</label><br>
+      <input type="file" name="audio" id="audio" accept="audio/*">
+      <br><br>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn">Generate</button>
+    </form>
+  </div>
 </body>
 </html>

@@ -27,7 +27,8 @@ label {
   margin: 10px 0 5px;
 }
 
-input[type="text"], input[type="file"] {
+input[type="text"],
+input[type="file"] {
   padding: 10px;
   width: 80%;
   border-radius: 8px;
@@ -53,4 +54,15 @@ button:hover, .btn:hover {
 
 .video-box {
   margin: 20px auto;
+}
+
+/* 🎨 Special style for "Generate Another" link */
+.btn-generate {
+  background: #55da86f4;   /* Pink */
+  color: white;
+}
+
+.btn-generate:hover {
+  background: #ffeb3b;   /* Yellow */
+  color: black;
 }

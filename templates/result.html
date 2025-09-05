@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Generated Video</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Generated Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Your Video is Ready 🎬</h1>
-        <video width="500" controls autoplay>
-            <source src="{{ url_for('static', filename='output.mp4') }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <br><br>
-        <a href="/">⬅️ Generate Another Video</a>
-    </div>
+  <div class="container">
+    <h1>Your Result is Ready 🎬🎵</h1>
+
+    {% if video_file %}
+      <h2>Generated Video:</h2>
+      <video controls width="600">
+        <source src="{{ url_for('static', filename='results/' + video_file) }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    {% endif %}
+
+    {% if audio_file %}
+      <h2>Generated Audio:</h2>
+      <audio controls>
+        <source src="{{ url_for('static', filename=audio_file) }}" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    {% endif %}
+
+    <br><br>
+    <a href="/" class="btn btn-generate">Generate Another</a>
+  </div>
 </body>
 </html>
