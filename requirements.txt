@@ -1,3 +1,4 @@
 flask
-moviepy
+moviepy==1.0.3
 gTTS
+imageio-ffmpeg
