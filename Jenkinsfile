@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_USER = credentials('dockerhub-username')   // Jenkins credential ID
+        DOCKER_HUB_USER = credentials('abhiyadav260')   // Jenkins credential ID
     }
 
     stages {
