@@ -2,18 +2,24 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Install ffmpeg and some basics
-RUN apt-get update && apt-get install -y ffmpeg gcc python3-dev && rm -rf /var/lib/apt/lists/*
+# Avoid tzdata prompts & update apt properly
+ENV DEBIAN_FRONTEND=noninteractive
 
+# Install ffmpeg and other dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ffmpeg gcc && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
 COPY requirements.txt .
 
-RUN pip install --upgrade pip
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy project files
 COPY . .
 
-# Debug: Show installed packages
-RUN pip list
+EXPOSE 5000
 
 CMD ["python", "app.py"]
 
