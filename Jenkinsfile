@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_USER = credentials('abhiyadav260')   // Jenkins credential ID
+        DOCKER_HUB_USER = credentials('dockerhub-credentials')   // Jenkins credential ID
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKERHUB_CREDENTIALS}") {
                         docker.image("text-to-voice").push("latest")
                     }
                 }
