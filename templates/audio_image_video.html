@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio + Image → Video</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Audio + Image → Video 🎶</h1>
+    <form action="/audio-image-video" method="post" enctype="multipart/form-data">
+      <label>Upload Audio:</label>
+      <input type="file" name="audio" accept="audio/*" required>
+      <label>Upload Image:</label>
+      <input type="file" name="image" accept="image/*" required>
+      <button type="submit">Generate</button>
+    </form>
+    <br>
+    <a href="/" class="btn">Back to Home</a>
+  </div>
+</body>
+</html>
+

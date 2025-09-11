@@ -1,12 +1,17 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1a2980, #26d0ce);
-  color: white;
-  text-align: center;
+/* Global style */
+html, body {
+  height: 100%;               /* Make sure background covers full screen */
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a2980, #26d0ce);
+  background-attachment: fixed;  /* Prevent background from moving */
+  background-size: cover;        /* Make gradient cover full area */
+  color: white;
+  text-align: center;
 }
 
+/* Container box for all content */
 .container {
   margin: 50px auto;
   padding: 30px;
@@ -16,53 +21,65 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
+/* Headings style */
 h1 {
   font-size: 28px;
   margin-bottom: 20px;
+  color: #ffdfdf;
 }
 
+h2 {
+  font-size: 22px;
+  margin: 15px 0;
+  color: #ffeaa7;
+}
+
+/* Form labels */
 label {
   display: block;
   font-size: 18px;
   margin: 10px 0 5px;
+  text-align: center;   /* 👈 Center align all form lebel */
 }
 
-input[type="text"],
-input[type="file"] {
-  padding: 10px;
-  width: 80%;
+/* Inputs fields*/
+input[type="text"], input[type="file"] {
+  display: block;
+  margin: 0 auto 20px;  
+  padding: 12px;
+  width: 90%;
   border-radius: 8px;
   border: none;
-  margin-bottom: 20px;
-}
-
-button, .btn {
-  background: #ff7e5f;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
   font-size: 16px;
+/*  text-align: center; */   /* 👈 Center align input & placeholder text */
+}
+
+/* Buttons - common design */
+.btn, button {
+  display: block;
+  width: 250px;
+  margin: 15px auto;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
   text-decoration: none;
-  transition: background 0.3s;
+  text-align: center;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-button:hover, .btn:hover {
-  background: #feb47b;
+.btn:hover, button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff4e8c, #ff2e63);
 }
 
-.video-box {
+/* Video/Audio boxes */
+.video-box, .audio-box {
   margin: 20px auto;
 }
 
-/* 🎨 Special style for "Generate Another" link */
-.btn-generate {
-  background: #55da86f4;   /* Pink */
-  color: white;
-}
-
-.btn-generate:hover {
-  background: #ffeb3b;   /* Yellow */
-  color: black;
-}

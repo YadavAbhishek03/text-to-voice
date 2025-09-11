@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Text-Voice-Video Generator 🎬🎵</h1>
+    <p>Select what you want to create:</p>
+
+    <a href="/text-to-voice" class="btn">Text → Voice</a>
+    <a href="/text-image-video" class="btn">Text + Image → Video</a>
+    <a href="/audio-image-video" class="btn">Audio + Image → Video</a>
+    <a href="/text-audio-image-video" class="btn">Text + Audio + Image → Video</a>
+  </div>
+</body>
+</html>
+
